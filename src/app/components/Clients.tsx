@@ -12,7 +12,7 @@ import {
   Edit2,
 } from "lucide-react";
 import axios from "axios";
-import { uri } from "@/contant";
+import { URI } from "@/contant";
 
 const Clients = () => {
   const [showAddForm, setShowAddForm] = useState(false);
@@ -40,7 +40,7 @@ const Clients = () => {
 
   const LoadData = async () => {
     try {
-      const response = await axios.get(`${uri}getcmsclients`);
+      const response = await axios.get(`${URI}getcmsclients`);
       setClients(response.data.payload);
     } catch (error) {
       if (error.response?.data?.payload) {
@@ -81,7 +81,7 @@ const Clients = () => {
         return;
       }
 
-      const response = await axios.post(`${uri}addclient`, {
+      const response = await axios.post(`${URI}addclient`, {
         formData,
       });
 
@@ -160,7 +160,7 @@ const Clients = () => {
         admin_id: formData.email,
       };
 
-      await axios.post(`${uri}updateclient`, {
+      await axios.post(`${URI}updateclient`, {
         data: updatedClient,
         client_id: client_id,
       });
