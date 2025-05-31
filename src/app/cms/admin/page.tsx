@@ -1,47 +1,77 @@
-'use client';
-
-import { useState } from 'react';
+"use client";
+import { uri } from "@/contant";
+import { useState } from "react";
+import axios from "axios";
+import { useRouter } from "next/navigation";
 
 export default function AdminLogin() {
-  const [email, setEmail] = useState('');
-  const [otp, setOtp] = useState('');
-  const [generatedOtp, setGeneratedOtp] = useState('');
+  const [email, setEmail] = useState("");
+  const [otp, setOtp] = useState("");
   const [showOtpForm, setShowOtpForm] = useState(false);
-  const [message, setMessage] = useState('');
+  const [message, setMessage] = useState("");
 
-  const handleSendOtp = () => {
+  const router = useRouter();
+
+  const handleSendOtp = async () => {
     if (!email) {
-      setMessage('Please enter a valid email');
+      setMessage("Please enter a valid email");
       return;
     }
 
-    // Simulate OTP generation (replace with server-side in production)
-    const newOtp = Math.floor(100000 + Math.random() * 900000).toString();
-    setGeneratedOtp(newOtp);
-    alert(`Your OTP is: ${newOtp} (In production, this would be sent to your email)`);
-    
-    setShowOtpForm(true);
-    setMessage('');
+    try {
+      const response = await axios.post(`${uri}adminlogin`, {
+        email,
+      });
+
+      if (response.status !== 200) {
+        alert(response.data.message);
+        return;
+      }
+
+      alert(response.data.message);
+      setShowOtpForm(true);
+    } catch (error) {
+      console.error("Error sending OTP:", error);
+      alert("Something Went Wrong");
+    }
   };
 
-  const handleOtpSubmit = () => {
-    if (otp === generatedOtp) {
-      setMessage('Login successful!');
-      // Redirect or perform further actions here
-    } else {
-      setMessage('Invalid OTP. Please try again.');
+  const handleOtpSubmit = async () => {
+    try {
+      const response = await axios.post(`${uri}verifyotp`, {
+        email: email,
+        otp: otp,
+      });
+
+      if (response.status != 200) {
+        alert(response.data.message);
+        return;
+      }
+
+      // Use absolute path with leading slash
+      router.push("/cmsdashboard");
+    } catch (error) {
+      console.error(error);
+      alert("Something Went Wrong");
     }
   };
 
   return (
     <div className="min-h-screen bg-gray-50 flex items-center justify-center p-4">
       <div className="bg-white p-8 rounded-2xl shadow-lg w-full max-w-sm transform transition-all hover:scale-105">
-        <h2 className="text-3xl font-bold mb-6 text-center text-gray-800">Admin Login</h2>
+        <h2 className="text-3xl font-bold mb-6 text-center text-gray-800">
+          Admin Login
+        </h2>
 
         {!showOtpForm ? (
           <div className="space-y-6">
             <div>
-              <label htmlFor="email" className="block text-sm font-medium text-gray-700">Email</label>
+              <label
+                htmlFor="email"
+                className="block text-sm font-medium text-gray-700"
+              >
+                Email
+              </label>
               <input
                 type="email"
                 id="email"
@@ -62,7 +92,12 @@ export default function AdminLogin() {
         ) : (
           <div className="space-y-6">
             <div>
-              <label htmlFor="otp" className="block text-sm font-medium text-gray-700">Enter OTP</label>
+              <label
+                htmlFor="otp"
+                className="block text-sm font-medium text-gray-700"
+              >
+                Enter OTP
+              </label>
               <input
                 type="text"
                 id="otp"
@@ -83,7 +118,11 @@ export default function AdminLogin() {
         )}
 
         {message && (
-          <p className={`mt-4 text-center text-sm ${message.includes('successful') ? 'text-green-500' : 'text-red-500'} font-medium`}>
+          <p
+            className={`mt-4 text-center text-sm ${
+              message.includes("successful") ? "text-green-500" : "text-red-500"
+            } font-medium`}
+          >
             {message}
           </p>
         )}
