@@ -12,7 +12,7 @@ import {
   IconBrandInstagram,
   IconBrandLinkedin,
   IconBrandTwitter,
-  IconBrandFacebook, // ✅ Import Facebook icon
+  IconBrandFacebook, 
 } from "@tabler/icons-react";
 
 export function DockDemo() {
@@ -41,19 +41,7 @@ export function DockDemo() {
       href: "#",
     },
 
-    {
-      title: "Aceternity UI",
-      icon: (
-        <img
-          src="https://assets.aceternity.com/logo-dark.png"
-          width={20}
-          height={20}
-          alt="Aceternity Logo"
-        />
-      ),
-      href: "#",
-    },
-
+   
     {
       title: "Facebook",
       icon: (
@@ -64,8 +52,8 @@ export function DockDemo() {
   ];
 
   return (
-    <div className="flex h-[35rem] w-[full]">
-      <FloatingDock mobileClassName="translate-y-20" items={links} />
+    <div className="flex h-[35rem]  ">
+      <FloatingDock mobileClassName=" dark" items={links} />
     </div>
   );
 }
