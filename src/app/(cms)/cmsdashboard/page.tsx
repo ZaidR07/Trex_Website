@@ -9,7 +9,7 @@ import {
   DollarSign,
   BarChart3,
 } from "lucide-react";
-import Clients from "../components/Clients";
+import Clients from "../../components/Clients";
 
 const Dashboard = () => {
   const [activeTab, setActiveTab] = useState("dashboard");

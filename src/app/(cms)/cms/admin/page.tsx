@@ -49,7 +49,7 @@ export default function AdminLogin() {
       }
 
       // Use absolute path with leading slash
-      router.push("/cmsdashboard");
+      router.push("/cmscompanyadmin");
     } catch (error) {
       console.error(error);
       alert("Something Went Wrong");
