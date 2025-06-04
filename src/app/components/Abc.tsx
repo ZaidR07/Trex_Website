@@ -105,8 +105,43 @@ const Abc = () => {
       </section>
 
       {/* UI/UX Design & Product Development Section */}
-      <section className="px-8 py-16 max-w-7xl mx-auto">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+      <section className="px-4 sm:px-6 md:px-8 py-12 sm:py-14 md:py-16 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <h2 className="text-4xl lg:text-5xl font-bold mb-6">
+              UI/UX Design &<br />Product Development
+            </h2>
+            <p className="text-gray-400 text-lg mb-8 leading-relaxed">
+              We focus on creating intuitive interfaces that drive successful interactions.
+            </p>
+            
+            <div className="grid grid-cols-2 gap-4">
+              <div className="bg-gray-800 rounded-lg p-4 flex items-center gap-3">
+                <Palette className="w-5 h-5 text-cyan-400" />
+                <span>UI Design</span>
+              </div>
+              <div className="bg-gray-800 rounded-lg p-4 flex items-center gap-3">
+                <Settings className="w-5 h-5 text-cyan-400" />
+                <span>UX Design</span>
+              </div>
+              <div className="bg-gray-800 rounded-lg p-4 flex items-center gap-3">
+                <Users className="w-5 h-5 text-cyan-400" />
+                <span>User Research</span>
+              </div>
+              <div className="bg-gray-800 rounded-lg p-4 flex items-center gap-3">
+                <Monitor className="w-5 h-5 text-cyan-400" />
+                <span>Prototyping</span>
+              </div>
+              <div className="bg-gray-800 rounded-lg p-4 flex items-center gap-3">
+                <TestTube className="w-5 h-5 text-cyan-400" />
+                <span>Usability Testing</span>
+              </div>
+              <div className="bg-gray-800 rounded-lg p-4 flex items-center gap-3">
+                <MousePointer className="w-5 h-5 text-cyan-400" />
+                <span>Interaction Design</span>
+              </div>
+            </div>
+          </div>
           <div className="relative">
             <div className="bg-gradient-to-br from-orange-400 to-orange-600 p-8 rounded-2xl">
               <div className="bg-gray-900 rounded-xl p-6">
@@ -159,43 +194,13 @@ const Abc = () => {
             </div>
           </div>
           
-          <div>
-            <h2 className="text-4xl lg:text-5xl font-bold mb-6">
-              UI/UX Design &<br />Product Development
-            </h2>
-            <p className="text-gray-400 text-lg mb-8 leading-relaxed">
-              We focus on creating intuitive interfaces that drive successful interactions.
-            </p>
-            
-            <div className="grid grid-cols-2 gap-4">
-              <div className="bg-gray-800 rounded-lg p-4 flex items-center gap-3">
-                <Palette className="w-5 h-5 text-cyan-400" />
-                <span>UI Design</span>
-              </div>
-              <div className="bg-gray-800 rounded-lg p-4 flex items-center gap-3">
-                <Settings className="w-5 h-5 text-cyan-400" />
-                <span>UX Design</span>
-              </div>
-              <div className="bg-gray-800 rounded-lg p-4 flex items-center gap-3">
-                <Users className="w-5 h-5 text-cyan-400" />
-                <span>User Research</span>
-              </div>
-              <div className="bg-gray-800 rounded-lg p-4 flex items-center gap-3">
-                <Monitor className="w-5 h-5 text-cyan-400" />
-                <span>Prototyping</span>
-              </div>
-              <div className="bg-gray-800 rounded-lg p-4 flex items-center gap-3">
-                <TestTube className="w-5 h-5 text-cyan-400" />
-                <span>Usability Testing</span>
-              </div>
-              <div className="bg-gray-800 rounded-lg p-4 flex items-center gap-3">
-                <MousePointer className="w-5 h-5 text-cyan-400" />
-                <span>Interaction Design</span>
-              </div>
-            </div>
-          </div>
+          
         </div>
       </section>
+
+
+
+
 
       {/* Branding Strategy & Custom Content Section */}
       <section className="px-8 py-16 max-w-7xl mx-auto">
@@ -294,13 +299,8 @@ const Abc = () => {
         </div>
       </section>
 
-      {/* Made in Framer badge */}
-      <div className="fixed bottom-4 right-4">
-        <div className="bg-white text-black px-3 py-1 rounded-full text-xs flex items-center gap-1">
-          <span>⚡</span>
-          Made in Framer
-        </div>
-      </div>
+     
+      
     </div>
   );
 };

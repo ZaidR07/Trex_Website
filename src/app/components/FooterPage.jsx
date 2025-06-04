@@ -1,7 +1,6 @@
 "use client";
 
 import React from 'react';
-import { Facebook, Twitter, Instagram, Linkedin, Youtube } from 'lucide-react';
 import {Trex} from "./Trex"
 import {DockDemo} from "./DockDemo"
 const FooterPage = () => {
@@ -20,48 +19,29 @@ const FooterPage = () => {
             <div className="w-8 h-8 bg-purple-600 rounded-lg flex items-center justify-center">
               <div className="w-4 h-4 bg-white rounded-sm"></div>
             </div>
-            <span className="text-xl font-bold">Fluid</span>
+            <span className="text-xl font-bold">T-rex</span>
           </div>
         </header>
 
         {/* Content Grid */}
-        <div className="flex-1 px-6 lg:px-8 pb-8">
+        <div className="flex-1 px-6 lg:px-8 pb-8 max-h-[30vh] lg:max-h-[30vh]" >
           <div className="max-w-7xl mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 lg:gap-12">
               
               {/* Company Info */}
               <div className="lg:col-span-1">
-                <h3 className="text-sm font-medium text-gray-400 mb-4">Company</h3>
+                <h3 className="text-sm font-medium text-gray-400 mb-4">8626072002</h3>
                 <p className="text-gray-300 text-sm mb-6 leading-relaxed">
-                  Crafting the Future of Web Excellence.
+                  trexinfotech.business@gmail.com
                 </p>
                 <div>
                   <p className="text-gray-400 text-sm mb-2">Connect with us:</p>
-                  <DockDemo  />
-
-                  <div className="flex gap-3">
-                    {/* <a href="#" >
-                      <Facebook className="w-4 h-4" />
-                    </a>
-                    <a href="#" className="w-8 h-8 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-gray-700 transition-colors">
-                      <Twitter className="w-4 h-4" />
-                    </a>
-                    <a href="#" className="w-8 h-8 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-gray-700 transition-colors">
-                      <Instagram className="w-4 h-4" />
-                    </a>
-                    <a href="#" className="w-8 h-8 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-gray-700 transition-colors">
-                      <Linkedin className="w-4 h-4" />
-                    </a>
-                    <a href="#" className="w-8 h-8 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-gray-700 transition-colors">
-                      <Youtube className="w-4 h-4" />
-                    </a> */}
-                  </div>   
-
-
+                  <DockDemo/>        
                 </div>
               </div>
 
               {/* Links Column */}
+
               <div className="lg:col-span-1">
                 <h3 className="text-sm font-medium text-gray-400 mb-4">Links</h3>
                 <div className="space-y-3">
@@ -75,7 +55,7 @@ const FooterPage = () => {
                     Pricing
                   </a>
                   <a href="#" className="block text-gray-300 text-sm hover:text-white transition-colors">
-                    Case Studies
+                    Schedule a callback
                   </a>
                   <a href="#" className="block text-gray-300 text-sm hover:text-white transition-colors">
                     Services

@@ -9,13 +9,18 @@ import FooterPage from './components/FooterPage';
 const Home = () => {
   return (
     <>
-      <Hero/> 
-      <Showcase/>
-      <Abc/>
-      <Testimonials/>
-      <Faq/>
-      <Booking/>
-      <FooterPage/>
+      <Hero />
+      <Showcase />
+      <section id="services">
+        <Abc />
+      </section>
+      <Testimonials />
+      <Faq />
+      <section id="booking">
+        <Booking />
+      </section>
+
+      <FooterPage />
     </>
 
   );

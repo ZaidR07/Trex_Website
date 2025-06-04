@@ -99,13 +99,7 @@ const Faq = () => {
         </div>
       </section>
 
-      {/* Made in Framer badge */}
-      <div className="fixed bottom-4 right-4">
-        <div className="bg-white text-black px-3 py-1 rounded-full text-xs flex items-center gap-1">
-          <span>⚡</span>
-          Made in Framer
-        </div>
-      </div>
+  
     </div>
   );
 };

@@ -72,7 +72,7 @@ const Showcase = () => {
           <div className="relative overflow-hidden">
             <div className="flex gap-6 w-max animate-scroll-marquee will-change-transform">
               {marqueeProjects.map((project, index) => (
-                <div key={`${project.id}-${index}`} className="w-[33.3333vw] flex-shrink-0 max-w-[400px]">
+                <div key={`${project.id}-${index}`} className="  w-[90vw] md:w-[45vw] lg:w-[33.3333vw] flex-shrink-0 max-w-[400px]">
                   <div
                     className={`bg-gradient-to-br ${project.bgColor} rounded-2xl p-6 h-[500px] relative overflow-hidden`}
                   >

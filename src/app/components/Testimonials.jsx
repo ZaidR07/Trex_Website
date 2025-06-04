@@ -1,39 +1,44 @@
 "use client";
 
 import React from 'react';
-
+import Image from 'next/image';
 const Testimonials = () => {
   const testimonials = [
     {
       id: 1,
-      text: "Fluid's approach transformed our e-commerce platform, making it dynamic, highly accessible and truly resonates with our users.",
-      additionalText: "They were incredibly collaborative and supportive, ensuring that every aspect of the project was perfectly executed.",
-      moreText: "They not only met our expectations but also provided valuable insights that enhanced the overall project. Working with Fluid was a great experience from start to finish, making complex technology easy and enjoyable for everyone involved.",
-      name: "Sophia Hart",
-      title: "eCommerce Manager",
-      company: "Fashion International",
-      avatar: "/api/placeholder/48/48"
+      text: "T-REX Infotech transformed our adventure travel vision into a digital reality that truly reflects the spirit of Yadunandana Adventures.",
+      additionalText: "From the destinations to the gallery, every section was built with clarity, emotion, and ease-of-use. Their design beautifully captures our promise of safe, sustainable, and unforgettable expeditions.",
+      moreText: "They went above and beyond in crafting a platform that allows us to showcase our treks, gather reviews, and connect directly with nature lovers. The result is a website that not only looks stunning but also works seamlessly — it has elevated our online presence and made it easier to grow our community.",
+      name: "Mohan Tiwari",
+      title: "Founder & Tour Planner",
+      company: "Yadunandana Adventures",
+      avatar: "/mohan2.png",
+      website: "https://www.yadunandanaadventures.com/"
     },
+
     {
       id: 2,
-      text: "Fluid revamped our outdated website, making it modern, responsive, and user-friendly.",
-      additionalText: "They took the time to understand our brand, creating a site that reflects our company's values. The project was completed on time and within budget, resulting in increased traffic and engagement.",
-      moreText: "Working with Fluid was a fantastic experience.",
-      name: "Lucas Graham",
-      title: "Marketing Manager",
-      company: "Tech Solutions",
-      avatar: "/api/placeholder/48/48"
+      text: "T-REX Infotech played a crucial role in modernizing our hospital’s digital presence, capturing the essence of our 40+ years of service in a seamless and professional website.",
+      additionalText: "Their team understood our unique values and medical legacy, creating a platform that reflects our commitment to Dharma, Seva, and patient care. The interface is clean, informative, and truly patient-friendly.",
+      moreText: "From showcasing our expert team and OPD schedules to highlighting our facilities and services, every section of the website was crafted with clarity and care. T-REX Infotech has helped us connect with patients more efficiently and present our multispeciality care with the dignity it deserves.",
+      name: "Dr. Dilip F. Yadav",
+      title: "Doctor & Owner",
+      company: "Ankur Maternity & Nursing Home",
+      avatar: "/ankur_logo.png",
+      website: "https://www.ankurmaternityhospital.in/"
     },
+
     {
       id: 3,
-      text: "The creativity and technical expertise of the Fluid team were instrumental in overhauling our corporate website.",
-      additionalText: "The end result exceeded our expectations and has significantly enhanced our presence in the market.",
-      moreText: "Their thorough approach and ongoing support have established them as a trusted partner in our ongoing digital transformation.",
-      name: "Tom Whiskers",
-      title: "Chief Product Officer", 
-      company: "InnovTech Enterprises",
+      text: "Working with T-REX Infotech was a turning point in establishing FinvestCorp’s digital presence with clarity, professionalism, and purpose.",
+      additionalText: "They took the time to deeply understand our mission of providing smart financial solutions and translated it into a sleek, modern website that builds trust and drives engagement.",
+      moreText: "From showcasing our services in loans, insurance, and investments to integrating our brand values of transparency and expertise — everything was handled with precision. The T-REX team delivered more than just a website; they delivered a platform that fuels our business and reflects our vision for financial empowerment.",
+      name: "Rajeev Singh",
+      title: "Owner & Founder",
+      company: "FinvestCorp",
       avatar: "/api/placeholder/48/48"
-    }
+    },
+
   ];
 
   // Duplicate testimonials for seamless loop
@@ -58,92 +63,85 @@ const Testimonials = () => {
         </p>
       </section>
 
-      {/* Testimonials Carousel */}
-      <section className="relative">
-        <div className="overflow-hidden">
-          {/* ROTATION ANIMATION CODE STARTS HERE */}
-          <div 
-            className="flex gap-6 animate-scroll"
-            style={{
-              width: 'calc(400px * 9)', // 3 testimonials × 3 repetitions × 400px width
-              animation: 'scroll 30s linear infinite'
-            }}
-          >
-            {/* ROTATION ANIMATION: This div contains all testimonials and moves continuously from right to left */}
-            {duplicatedTestimonials.map((testimonial, index) => (
-              <div
-                key={`${testimonial.id}-${index}`}
-                className="flex-shrink-0 w-96 bg-gray-900 border border-gray-800 rounded-2xl p-8 mx-3"
-              >
-                {/* Testimonial Content */}
-                <div className="space-y-4 mb-8">
-                  <p className="text-gray-300 text-sm leading-relaxed italic">
-                    "{testimonial.text}"
-                  </p>
-                  <p className="text-gray-400 text-sm leading-relaxed">
-                    {testimonial.additionalText}
-                  </p>
-                  <p className="text-gray-400 text-sm leading-relaxed">
-                    {testimonial.moreText}
-                  </p>
-                </div>
-
-                {/* Client Info */}
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 bg-gray-700 rounded-lg flex items-center justify-center">
-                    <div className="w-10 h-10 bg-gray-600 rounded-md"></div>
-                  </div>
-                  <div>
-                    <div className="text-white font-semibold text-sm">
-                      {testimonial.name}
-                    </div>
-                    <div className="text-gray-400 text-xs">
-                      {testimonial.title}
-                    </div>
-                    <div className="text-gray-500 text-xs">
-                      {testimonial.company}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
+     <section className="relative">
+  <div className="overflow-hidden group"> {/* ✅ Added group class here */}
+    {/* ROTATION ANIMATION CODE STARTS HERE */}
+    <div 
+      className="flex gap-6 animate-scroll group-hover:paused" // ✅ Add group-hover override
+      style={{
+        width: 'calc(400px * 9)',
+        animation: 'scroll 30s linear infinite',
+      }}
+    >
+      {duplicatedTestimonials.map((testimonial, index) => (
+        <div
+          key={`${testimonial.id}-${index}`}
+          className="flex-shrink-0 w-96 bg-gray-900 border border-gray-800 rounded-2xl p-8 mx-3"
+        >
+          <div className="space-y-4 mb-8">
+            <p className="text-gray-300 text-sm leading-relaxed italic">
+              "{testimonial.text}"
+            </p>
+            <p className="text-gray-400 text-sm leading-relaxed">
+              {testimonial.additionalText}
+            </p>
+            <p className="text-gray-400 text-sm leading-relaxed">
+              {testimonial.moreText}
+            </p>
           </div>
-          {/* ROTATION ANIMATION CODE ENDS HERE */}
+          <div className="flex items-center gap-4">
+            <div className="w-12 h-12 bg-gray-700 rounded-lg flex items-center justify-center">
+              <div className="w-10 h-10 bg-gray-600 rounded-md">
+                <Image
+                  src={testimonial.avatar}
+                  width={40}
+                  height={40}
+                  alt="Client Avatar"
+                  className="rounded-md object-cover"
+                  />
+              </div>
+            </div>
+            <div>
+              <div className="text-white font-semibold text-sm">
+                {testimonial.name}
+              </div>
+              <div className="text-gray-400 text-xs">
+                {testimonial.title}
+              </div>
+              <div className="text-gray-500 text-xs">
+              </div>
+            </div>
+          </div>
         </div>
+      ))}
+    </div>
+    {/* ROTATION ANIMATION CODE ENDS HERE */}
+  </div>
 
-        {/* Gradient Overlays for smooth edges */}
-        <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-black to-transparent pointer-events-none z-10"></div>
-        <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-black to-transparent pointer-events-none z-10"></div>
-      </section>
+  {/* Gradient Overlays */}
+  <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-black to-transparent pointer-events-none z-10"></div>
+  <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-black to-transparent pointer-events-none z-10"></div>
+</section>
 
-      {/* Made in Framer badge */}
-      <div className="fixed bottom-4 right-4 z-20">
-        <div className="bg-white text-black px-3 py-1 rounded-full text-xs flex items-center gap-1">
-          <span>⚡</span>
-          Made in Framer
-        </div>
-      </div>
+<style jsx>{`
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(calc(-400px * 3));
+    }
+  }
 
-      {/* CSS Animation Styles */}
-      <style jsx>{`
-        @keyframes scroll {
-          0% {
-            transform: translateX(0);
-          }
-          100% {
-            transform: translateX(calc(-400px * 3)); /* Move by width of 3 testimonials */
-          }
-        }
-        
-        .animate-scroll {
-          animation: scroll 30s linear infinite;
-        }
-        
-        /* Pause animation on hover for better UX */
-        .animate-scroll:hover {
-          animation-play-state: paused;
-        }
-      `}</style>
+  .animate-scroll {
+    animation: scroll 30s linear infinite;
+  }
+
+  .paused {
+    animation-play-state: paused !important;
+  }
+`}</style>
+
     </div>
   );
 };

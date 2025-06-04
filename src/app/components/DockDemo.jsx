@@ -22,7 +22,7 @@ export function DockDemo() {
       icon: (
         <IconBrandInstagram className="h-full w-full text-neutral-500 dark:text-neutral-300" />
       ),
-      href: "#",
+      href: "https://www.instagram.com/trex_infotech/",
     },
 
     {
@@ -53,7 +53,7 @@ export function DockDemo() {
 
   return (
     <div className="flex h-[35rem]  ">
-      <FloatingDock mobileClassName=" dark" items={links} />
+      <FloatingDock mobileClassName="dark"  items={links} />
     </div>
   );
 }
