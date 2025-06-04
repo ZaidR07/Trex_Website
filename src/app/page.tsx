@@ -1,4 +1,5 @@
 import React from 'react'
+import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import Showcase from './components/Showcase'
 import Abc from './components/Abc';
@@ -9,7 +10,9 @@ import FooterPage from './components/FooterPage';
 const Home = () => {
   return (
     <>
-      <Hero />
+      <section id='hero' >
+        <Hero />
+      </section>
       <Showcase />
       <section id="services">
         <Abc />
