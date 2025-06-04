@@ -19,7 +19,6 @@ const Home = () => {
       <section id="booking">
         <Booking />
       </section>
-
       <FooterPage />
     </>
 
