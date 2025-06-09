@@ -333,7 +333,7 @@ const Page = () => {
                                         </div>
                                         <div>
                                             <label className="block text-sm font-medium text-gray-600 mb-2">
-                                                Price ($) *
+                                                Price *
                                             </label>
                                             <input
                                                 type="number"
@@ -404,16 +404,16 @@ const Page = () => {
                                     >
                                         <option value="">Select payment method</option>
                                         <option value="cash">Cash</option>
-                                        <option value="check">Check</option>
+                                        <option value="Cheque">Cheque</option>
                                         <option value="bank_transfer">Bank Transfer</option>
                                         <option value="credit_card">Credit Card</option>
-                                        <option value="paypal">PayPal</option>
+                                        <option value="upi">UPI</option>
                                         <option value="other">Other</option>
                                     </select>
                                 </div>
                                 <div>
                                     <label className="block text-sm font-medium text-gray-600 mb-2">
-                                        Paid Amount ($) *
+                                        Paid Amount *
                                     </label>
                                     <input
                                         type="number"
@@ -435,17 +435,17 @@ const Page = () => {
                             <div className="space-y-3">
                                 <div className="flex justify-between items-center text-lg">
                                     <span className="text-gray-700">Total Amount:</span>
-                                    <span className="font-semibold text-gray-900">${totals.totalAmount.toFixed(2)}</span>
+                                    <span className="font-semibold text-gray-900">{totals.totalAmount.toFixed(2)}</span>
                                 </div>
                                 <div className="flex justify-between items-center text-lg">
                                     <span className="text-gray-700">Paid Amount:</span>
-                                    <span className="font-semibold text-green-600">${formData.paidAmount.toFixed(2)}</span>
+                                    <span className="font-semibold text-green-600">{formData.paidAmount.toFixed(2)}</span>
                                 </div>
                                 <div className="border-t border-indigo-200 pt-3">
                                     <div className="flex justify-between items-center text-xl">
                                         <span className="text-gray-800 font-semibold">Balance Amount:</span>
-                                        <span className={`font-bold ${totals.balanceAmount >= 0 ? 'text-red-600' : 'text-green-600'}`}>
-                                            ${Math.abs(totals.balanceAmount).toFixed(2)}
+                                        <span className={`font-bold {totals.balanceAmount >= 0 ? 'text-red-600' : 'text-green-600'}`}>
+                                            {Math.abs(totals.balanceAmount).toFixed(2)}
                                             {totals.balanceAmount < 0 && ' (Overpaid)'}
                                         </span>
                                     </div>
