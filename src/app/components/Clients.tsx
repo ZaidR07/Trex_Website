@@ -147,7 +147,6 @@ const Clients = () => {
 
       // Update client in local state
       const updatedClient = {
-        //@ts-expect-error err
         ...selectedClient,
         email: formData.email,
         number: formData.number,
@@ -155,7 +154,9 @@ const Clients = () => {
         amount: parseFloat(formData.amount),
         payment: parseFloat(formData.payment),
         balance: parseFloat(formData.balance),
+        //@ts-expect-error err
         emailPack: parseInt(formData.emailPack) || 0,
+        //@ts-expect-error err
         smsPack: parseInt(formData.smsPack) || 0,
         admin_id: formData.email,
       };
@@ -184,9 +185,7 @@ const Clients = () => {
       setShowEditForm(false);
       setSelectedClient(null);
     } catch (error) {
-      //@ts-expect-error err
       if (error.res.data.message) {
-        //@ts-expect-error err
         alert(error.res.data.message);
       } else {
         alert("Something went wrong");
