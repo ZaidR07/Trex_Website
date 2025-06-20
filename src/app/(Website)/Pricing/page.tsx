@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from 'react';
 import { Check, Star, Zap, Crown, Shield, Rocket } from 'lucide-react';
+import Navbar from '@/app/components/Navbar';
 
 const Page = () => {
   const [activeService, setActiveService] = useState('hosting');
@@ -408,145 +409,144 @@ const Page = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-purple-900 to-indigo-900 py-12 px-4">
-      <div className="max-w-7xl mx-auto">
-        {/* Header */}
+    <>
+      <Navbar />
+      {/* Main Content */}
+      <div className="min-h-screen bg-gradient-to-br from-gray-900 xl:mt-16 via-purple-900 to-indigo-900 py-12 px-4">
+        <div className="max-w-7xl mx-auto">
+          {/* Header */}
           <div className="text-center mb-12 animate-fade-in">
-          <div className="flex items-center justify-center mb-4">
-            <div className="w-12 h-12 bg-gradient-to-r from-purple-600 to-blue-600 rounded-lg flex items-center justify-center mr-3">
-              <span className="text-white font-bold text-xl">T</span>
+            <div className="flex items-center justify-center mb-4">
+              <div className="w-12 h-12 bg-gradient-to-r from-purple-600 to-blue-600 rounded-lg flex items-center justify-center mr-3">
+                <span className="text-white font-bold text-xl">T</span>
+              </div>
+              <h1 className="text-4xl font-bold text-white">T-rexinfotech</h1>
             </div>
-            <h1 className="text-4xl font-bold text-white">T-rexinfotech</h1>
+            <h2 className="text-3xl md:text-4xl font-bold text-purple-300 mb-4">
+              Launch online: Affordable plans and services
+            </h2>
+            <p className="text-gray-300 text-lg max-w-2xl mx-auto">
+              Choose the perfect plan for your software development and digital marketing needs
+            </p>
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold text-purple-300 mb-4">
-            Launch online: Affordable plans and services
-          </h2>
-          <p className="text-gray-300 text-lg max-w-2xl mx-auto">
-            Choose the perfect plan for your software development and digital marketing needs
-          </p>
-        </div>
 
-        {/* Service Tabs */}
-        <div className="flex flex-wrap justify-center gap-3 mb-8">
-          {services.map((service, index) => (
-            <div
-              key={service.id}
-              onClick={() => setActiveService(service.id)}
-              className={`flex items-center space-x-2 px-4 py-2 rounded-full border cursor-pointer transition-all duration-300 transform hover:scale-105 ${
-                activeService === service.id
-                  ? 'bg-gradient-to-r from-purple-600 to-blue-600 text-white border-purple-600 shadow-lg'
-                  : 'bg-gray-800/70 backdrop-blur-sm border-purple-400 hover:bg-purple-800/50 text-purple-300'
-              }`}
-              style={{ animationDelay: `${index * 100}ms` }}
-            >
-              <span className="text-lg">{service.icon}</span>
-              <span className="font-medium">{service.label}</span>
-            </div>
-          ))}
-        </div>
+          {/* Service Tabs */}
+          <div className="flex flex-wrap justify-center gap-3 mb-8">
+            {services.map((service, index) => (
+              <div
+                key={service.id}
+                onClick={() => setActiveService(service.id)}
+                className={`flex items-center space-x-2 px-4 py-2 rounded-full border cursor-pointer transition-all duration-300 transform hover:scale-105 ${activeService === service.id
+                    ? 'bg-gradient-to-r from-purple-600 to-blue-600 text-white border-purple-600 shadow-lg'
+                    : 'bg-gray-800/70 backdrop-blur-sm border-purple-400 hover:bg-purple-800/50 text-purple-300'
+                  }`}
+                style={{ animationDelay: `${index * 100}ms` }}
+              >
+                <span className="text-lg">{service.icon}</span>
+                <span className="font-medium">{service.label}</span>
+              </div>
+            ))}
+          </div>
 
-        {/* Active Service Title */}
-        <div className="text-center mb-8">
-          <h3 className="text-2xl font-bold text-white capitalize">
-            {activeService} Plans & Pricing
-          </h3>
-          <p className="text-gray-300 mt-2">
-            Choose the perfect {activeService} plan for your business needs
-          </p>
-        </div>
+          {/* Active Service Title */}
+          <div className="text-center mb-8">
+            <h3 className="text-2xl font-bold text-white capitalize">
+              {activeService} Plans & Pricing
+            </h3>
+            <p className="text-gray-300 mt-2">
+              Choose the perfect {activeService} plan for your business needs
+            </p>
+          </div>
 
-        {/* Pricing Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-          {servicePlans[activeService].map((plan, index) => (
-            <div
-              key={plan.id}
-              className={`relative bg-gray-800/80 backdrop-blur-sm rounded-2xl shadow-lg border-2 transition-all duration-500 transform hover:scale-105 hover:shadow-2xl ${
-                plan.popular 
-                  ? 'border-purple-500 ring-4 ring-purple-400/30' 
-                  : 'border-gray-600 hover:border-purple-400'
-              } ${hoveredPlan === plan.id ? 'rotate-1' : ''}`}
-              style={{ animationDelay: `${index * 150}ms` }}
-              onMouseEnter={() => setHoveredPlan(plan.id)}
-              onMouseLeave={() => setHoveredPlan(null)}
-            >
-              {plan.popular && (
-                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                  <div className="bg-gradient-to-r from-purple-600 to-blue-600 text-white px-6 py-2 rounded-full text-sm font-bold animate-pulse">
-                    MOST POPULAR
-                  </div>
-                </div>
-              )}
-
-              <div className="p-6">
-                {/* Plan Header */}
-                <div className="text-center mb-6">
-                  <div className={`inline-flex items-center justify-center w-16 h-16 rounded-full mb-4 ${
-                    plan.popular 
-                      ? 'bg-gradient-to-r from-purple-600 to-blue-600 text-white' 
-                      : 'bg-purple-100 text-purple-600'
-                  }`}>
-                    {plan.icon}
-                  </div>
-                  <h3 className="text-xl font-bold text-white mb-2">{plan.name}</h3>
-                  <p className="text-gray-300 text-sm leading-relaxed">{plan.description}</p>
-                </div>
-
-                {/* Pricing */}
-                <div className="text-center mb-6">
-                  <div className="flex items-center justify-center mb-2">
-                    <span className="text-gray-400 text-lg">₹</span>
-                    <span className="text-4xl font-bold text-white">{plan.price.toFixed(2)}</span>
-                    <span className="text-gray-400 text-lg">/mo</span>
-                  </div>
-                  <div className="text-purple-400 text-sm font-medium mb-2">+3 months free</div>
-                  <div className="text-xs text-gray-400">
-                    Renews at ₹{plan.originalPrice.toFixed(2)}/mo for a year. Cancel anytime.
-                  </div>
-                </div>
-
-                {/* CTA Button */}
-                <button className={`w-full py-3 px-4 rounded-lg font-semibold transition-all duration-300 mb-6 ${
-                  plan.popular
-                    ? 'bg-gradient-to-r from-purple-600 to-blue-600 text-white hover:from-purple-700 hover:to-blue-700 transform hover:scale-105'
-                    : 'bg-purple-600/20 text-purple-300 hover:bg-purple-600/30 border-2 border-purple-500 hover:border-purple-400'
-                }`}>
-                  Choose plan
-                </button>
-
-                {/* Features */}
-                <div className="space-y-3">
-                  {plan.features.map((feature, featureIndex) => (
-                    <div 
-                      key={featureIndex} 
-                      className="flex items-start space-x-3 animate-slide-in"
-                      style={{ animationDelay: `${(index * 150) + (featureIndex * 50)}ms` }}
-                    >
-                      <Check className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" />
-                      <span className="text-gray-300 text-sm">{feature}</span>
+          {/* Pricing Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+            {servicePlans[activeService].map((plan, index) => (
+              <div
+                key={plan.id}
+                className={`relative bg-gray-800/80 backdrop-blur-sm rounded-2xl shadow-lg border-2 transition-all duration-500 transform hover:scale-105 hover:shadow-2xl ${plan.popular
+                    ? 'border-purple-500 ring-4 ring-purple-400/30'
+                    : 'border-gray-600 hover:border-purple-400'
+                  } ${hoveredPlan === plan.id ? 'rotate-1' : ''}`}
+                style={{ animationDelay: `${index * 150}ms` }}
+                onMouseEnter={() => setHoveredPlan(plan.id)}
+                onMouseLeave={() => setHoveredPlan(null)}
+              >
+                {plan.popular && (
+                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                    <div className="bg-gradient-to-r from-purple-600 to-blue-600 text-white px-6 py-2 rounded-full text-sm font-bold animate-pulse">
+                      MOST POPULAR
                     </div>
-                  ))}
+                  </div>
+                )}
+
+                <div className="p-6">
+                  {/* Plan Header */}
+                  <div className="text-center mb-6">
+                    <div className={`inline-flex items-center justify-center w-16 h-16 rounded-full mb-4 ${plan.popular
+                        ? 'bg-gradient-to-r from-purple-600 to-blue-600 text-white'
+                        : 'bg-purple-100 text-purple-600'
+                      }`}>
+                      {plan.icon}
+                    </div>
+                    <h3 className="text-xl font-bold text-white mb-2">{plan.name}</h3>
+                    <p className="text-gray-300 text-sm leading-relaxed">{plan.description}</p>
+                  </div>
+
+                  {/* Pricing */}
+                  <div className="text-center mb-6">
+                    <div className="flex items-center justify-center mb-2">
+                      <span className="text-gray-400 text-lg">₹</span>
+                      <span className="text-4xl font-bold text-white">{plan.price.toFixed(2)}</span>
+                      <span className="text-gray-400 text-lg">/mo</span>
+                    </div>
+                    <div className="text-purple-400 text-sm font-medium mb-2">+3 months free</div>
+                    <div className="text-xs text-gray-400">
+                      Renews at ₹{plan.originalPrice.toFixed(2)}/mo for a year. Cancel anytime.
+                    </div>
+                  </div>
+
+                  {/* CTA Button */}
+                  <button className={`w-full py-3 px-4 rounded-lg font-semibold transition-all duration-300 mb-6 ${plan.popular
+                      ? 'bg-gradient-to-r from-purple-600 to-blue-600 text-white hover:from-purple-700 hover:to-blue-700 transform hover:scale-105'
+                      : 'bg-purple-600/20 text-purple-300 hover:bg-purple-600/30 border-2 border-purple-500 hover:border-purple-400'
+                    }`}>
+                    Choose plan
+                  </button>
+
+                  {/* Features */}
+                  <div className="space-y-3">
+                    {plan.features.map((feature, featureIndex) => (
+                      <div
+                        key={featureIndex}
+                        className="flex items-start space-x-3 animate-slide-in"
+                        style={{ animationDelay: `${(index * 150) + (featureIndex * 50)}ms` }}
+                      >
+                        <Check className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" />
+                        <span className="text-gray-300 text-sm">{feature}</span>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
 
-        {/* Footer */}
-        <div className="text-center">
-          <div className="bg-gray-800/70 backdrop-blur-sm rounded-lg p-6 border border-purple-500">
-            <h3 className="text-xl font-bold text-white mb-2">Need a custom solution?</h3>
-            <p className="text-gray-300 mb-4">
-              Contact our team to discuss enterprise-level solutions tailored to your specific needs.
-            </p>
-            <button className="bg-gradient-to-r from-purple-600 to-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:from-purple-700 hover:to-blue-700 transition-all duration-300 transform hover:scale-105">
-              <a href="9022389465">Contact Sales</a>
-              
-            </button>
+          {/* Footer */}
+          <div className="text-center">
+            <div className="bg-gray-800/70 backdrop-blur-sm rounded-lg p-6 border border-purple-500">
+              <h3 className="text-xl font-bold text-white mb-2">Need a custom solution?</h3>
+              <p className="text-gray-300 mb-4">
+                Contact our team to discuss enterprise-level solutions tailored to your specific needs.
+              </p>
+              <button className="bg-gradient-to-r from-purple-600 to-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:from-purple-700 hover:to-blue-700 transition-all duration-300 transform hover:scale-105">
+                <a href="9022389465">Contact Sales</a>
+
+              </button>
+            </div>
           </div>
         </div>
-      </div>
 
-      <style jsx>{`
+        <style jsx>{`
         @keyframes fade-in {
           from { opacity: 0; transform: translateY(20px); }
           to { opacity: 1; transform: translateY(0); }
@@ -566,7 +566,8 @@ const Page = () => {
           opacity: 0;
         }
       `}</style>
-    </div>
+      </div>
+    </>
   );
 };
 

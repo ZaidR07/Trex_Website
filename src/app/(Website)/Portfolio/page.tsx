@@ -1,9 +1,13 @@
 "use client";
 import React from 'react';
+import Navbar from '@/app/components/Navbar';
 
 const Page = () => {
-  return (
-    <div className="bg-gray-900 text-white relative py-16 px-4 sm:px-6 lg:px-8">
+  return ( 
+    <>
+    <Navbar />
+
+    <div className="bg-gray-900 text-white relative py-16 mt-14 px-4 sm:px-6 lg:px-8">
       {/* Background gradient overlay */}
       <div className="absolute inset-0 bg-gradient-to-br from-purple-900/20 to-blue-900/20"></div>
       
@@ -82,6 +86,7 @@ const Page = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

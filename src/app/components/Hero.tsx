@@ -1,5 +1,6 @@
 "use client";
 import React from 'react';
+import Navbar from './Navbar';
 
 const Hero = () => {
   const handleNavigation = (path) => {
@@ -7,6 +8,8 @@ const Hero = () => {
   };
 
   return (
+    <>
+    <Navbar/>
     <div className="min-h-screen mt-[10vh] bg-gray-900 text-white relative overflow-hidden">
       {/* Background gradient overlay */}
       <div className="absolute inset-0 bg-gradient-to-br from-purple-900/20 to-blue-900/20"></div>
@@ -67,6 +70,7 @@ const Hero = () => {
         </div>
   
     </div>
+    </>
   );
 };
 
