@@ -59,6 +59,67 @@ const Faq = () => {
     ]
   };
 
+  const sdlcProcess = {
+    requirementAnalysis: [
+      "In-depth consultations to understand business goals and user needs",
+      "Technical feasibility assessment and project scope definition",
+      "Clear documentation of functional and non-functional requirements"
+    ],
+    planningEstimation: [
+      "Project timelines and milestone planning",
+      "Resource allocation and risk assessment",
+      "Transparent costing and delivery plans shared with clients"
+    ],
+    uiuxDesign: [
+      "Wireframes and interactive prototypes using industry-standard tools",
+      "Intuitive user experience design aligned with brand identity",
+      "User journey mapping and accessibility considerations"
+    ],
+    development: [
+      "Modular, scalable code development using appropriate tech stack",
+      "Agile sprints for flexibility and continuous delivery",
+      "Code reviews and version control with Git workflows"
+    ],
+    testingQA: [
+      "Rigorous manual and automated testing (Unit, Integration, UAT)",
+      "Compliance, performance, and security audits",
+      "Bug tracking and resolution with comprehensive test reports"
+    ],
+    deployment: [
+      "Seamless deployment across environments (Staging → Production)",
+      "CI/CD pipelines for automated deployment processes",
+      "Support for AWS, Vercel, Hostinger, and other platforms"
+    ],
+    maintenanceSupport: [
+      "Post-deployment support and feature updates",
+      "Performance monitoring and optimization",
+      "SLAs for long-term maintenance and customer success"
+    ]
+  };
+
+  const contactInfo = {
+    headOffice: [
+      "T-Rex Infotech Pvt. Ltd.",
+      "Rajkot, Gujarat, India – 360002",
+      "Professional business environment with modern facilities"
+    ],
+    phoneSupport: [
+      "+91-79721-85375",
+      "Available Mon–Sat, 10:00 AM to 6:00 PM IST",
+      "Direct access to our technical support team"
+    ],
+    emailSupport: [
+      "support@t-rexinfotech.com",
+      "For inquiries, technical issues, or project discussions",
+      "Guaranteed response within 24 hours on business days"
+    ],
+    website: [
+      "www.t-rexinfotech.com",
+      "Submit contact forms or book consultations",
+      "Access to our portfolio, case studies, and client testimonials"
+    ]
+  };
+
   const faqs = [
     {
       id: 1,
@@ -76,14 +137,16 @@ const Faq = () => {
     },
     {
       id: 3,
-      question: "What is your project management process?",
-      answer: "Our project management process follows agile methodologies with clear milestones and regular communication. We start with discovery and planning, move through design and development phases, conduct thorough testing, and provide comprehensive deployment and support with continuous client collaboration.",
+      question: "What is your Software Development Process?",
+      answer: "At T-Rex Infotech, we follow a structured and adaptive Software Development Life Cycle (SDLC) to ensure high-quality, scalable, and timely software solutions. Our process integrates both Agile and Waterfall methodologies—depending on project complexity and client needs.",
+      hasSDLC: true,
       icon: <Users className="w-5 h-5 text-blue-400" />
     },
     {
       id: 4,
-      question: "How do you ensure the security and privacy of our data?",
-      answer: "We implement industry-standard security measures including SSL certificates, secure hosting, regular backups, and data encryption. We follow GDPR compliance guidelines and sign NDAs when required. Your data privacy and security are our top priorities with multi-layered protection protocols.",
+      question: "How to Reach Us?",
+      answer: "We're always here to support your digital journey. Contact us through multiple channels for inquiries, technical support, or project discussions. Our team is committed to providing prompt and professional assistance to help you achieve your business goals.",
+      hasContact: true,
       icon: <Shield className="w-5 h-5 text-blue-400" />
     },
     {
@@ -128,6 +191,52 @@ const Faq = () => {
       desktopApplications: "Desktop Applications",
       databases: "Databases",
       hostingDeployment: "Hosting & Deployment"
+    };
+    return titles[category];
+  };
+
+  const getSDLCIcon = (category) => {
+    const icons = {
+      requirementAnalysis: <Globe className="w-4 h-4" />,
+      planningEstimation: <Users className="w-4 h-4" />,
+      uiuxDesign: <Monitor className="w-4 h-4" />,
+      development: <Code className="w-4 h-4" />,
+      testingQA: <Shield className="w-4 h-4" />,
+      deployment: <Cloud className="w-4 h-4" />,
+      maintenanceSupport: <Zap className="w-4 h-4" />
+    };
+    return icons[category] || <Code className="w-4 h-4" />;
+  };
+
+  const getSDLCTitle = (category) => {
+    const titles = {
+      requirementAnalysis: "Requirement Gathering & Analysis",
+      planningEstimation: "Planning & Estimation",
+      uiuxDesign: "UI/UX Design",
+      development: "Development",
+      testingQA: "Testing & QA",
+      deployment: "Deployment",
+      maintenanceSupport: "Maintenance & Support"
+    };
+    return titles[category];
+  };
+
+  const getContactIcon = (category) => {
+    const icons = {
+      headOffice: <Globe className="w-4 h-4" />,
+      phoneSupport: <Smartphone className="w-4 h-4" />,
+      emailSupport: <Shield className="w-4 h-4" />,
+      website: <Monitor className="w-4 h-4" />
+    };
+    return icons[category] || <Globe className="w-4 h-4" />;
+  };
+
+  const getContactTitle = (category) => {
+    const titles = {
+      headOffice: "Head Office",
+      phoneSupport: "Phone Support",
+      emailSupport: "Email Support",
+      website: "Website"
     };
     return titles[category];
   };
@@ -298,6 +407,78 @@ const Faq = () => {
                               <div className="flex items-center gap-3">
                                 {getTechStackIcon(category)}
                                 <span className="text-blue-400 font-medium">{getTechStackTitle(category)}</span>
+                              </div>
+                              <ChevronDown 
+                                className={`w-4 h-4 text-blue-400 transition-transform duration-200 ${
+                                  openService === category ? 'rotate-180' : ''
+                                }`}
+                              />
+                            </button>
+                            {openService === category && (
+                              <div className="px-5 pb-4 bg-gray-800/20">
+                                <div className="space-y-2 pt-3">
+                                  {items.map((item, index) => (
+                                    <div key={index} className="flex items-start gap-3 text-gray-300 text-sm py-2 px-3 bg-gray-700/30 rounded-lg">
+                                      <div className="w-1.5 h-1.5 bg-blue-400 rounded-full mt-2 flex-shrink-0"></div>
+                                      <span>{item}</span>
+                                    </div>
+                                  ))}
+                                </div>
+                              </div>
+                            )}
+                          </div>
+                        ))}
+                      </div>
+                    )}
+
+                    {faq.hasSDLC && (
+                      <div className="space-y-4">
+                        <h4 className="text-blue-400 font-semibold text-lg mb-4">Our SDLC Approach:</h4>
+                        {Object.entries(sdlcProcess).map(([category, items]) => (
+                          <div key={category} className="border border-gray-700/50 rounded-xl overflow-hidden bg-gray-800/30">
+                            <button
+                              onClick={(e) => toggleService(category, e)}
+                              className="w-full px-5 py-4 text-left flex items-center justify-between hover:bg-gray-700/30 transition-colors group"
+                            >
+                              <div className="flex items-center gap-3">
+                                {getSDLCIcon(category)}
+                                <span className="text-blue-400 font-medium">{getSDLCTitle(category)}</span>
+                              </div>
+                              <ChevronDown 
+                                className={`w-4 h-4 text-blue-400 transition-transform duration-200 ${
+                                  openService === category ? 'rotate-180' : ''
+                                }`}
+                              />
+                            </button>
+                            {openService === category && (
+                              <div className="px-5 pb-4 bg-gray-800/20">
+                                <div className="space-y-2 pt-3">
+                                  {items.map((item, index) => (
+                                    <div key={index} className="flex items-start gap-3 text-gray-300 text-sm py-2 px-3 bg-gray-700/30 rounded-lg">
+                                      <div className="w-1.5 h-1.5 bg-blue-400 rounded-full mt-2 flex-shrink-0"></div>
+                                      <span>{item}</span>
+                                    </div>
+                                  ))}
+                                </div>
+                              </div>
+                            )}
+                          </div>
+                        ))}
+                      </div>
+                    )}
+
+                    {faq.hasContact && (
+                      <div className="space-y-4">
+                        <h4 className="text-blue-400 font-semibold text-lg mb-4">Contact Information:</h4>
+                        {Object.entries(contactInfo).map(([category, items]) => (
+                          <div key={category} className="border border-gray-700/50 rounded-xl overflow-hidden bg-gray-800/30">
+                            <button
+                              onClick={(e) => toggleService(category, e)}
+                              className="w-full px-5 py-4 text-left flex items-center justify-between hover:bg-gray-700/30 transition-colors group"
+                            >
+                              <div className="flex items-center gap-3">
+                                {getContactIcon(category)}
+                                <span className="text-blue-400 font-medium">{getContactTitle(category)}</span>
                               </div>
                               <ChevronDown 
                                 className={`w-4 h-4 text-blue-400 transition-transform duration-200 ${

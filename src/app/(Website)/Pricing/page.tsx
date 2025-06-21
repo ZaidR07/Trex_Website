@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from 'react';
 import { Check, Star, Zap, Crown, Shield, Rocket } from 'lucide-react';
-import Navbar from '@/app/components/Navbar';
+import Navbar from '@/app/(cms)/components/Navbar';
 
 const Page = () => {
   const [activeService, setActiveService] = useState('hosting');

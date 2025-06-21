@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { Monitor, ShoppingCart, Settings, Globe, Search, Wrench, Palette, Users, TestTube, MousePointer, Target, TrendingUp, Edit, Share2, FileText } from 'lucide-react';
-import Navbar from '@/app/components/Navbar';
+import Navbar from '@/app/(cms)/components/Navbar';
 
 const page = () => {
   return (

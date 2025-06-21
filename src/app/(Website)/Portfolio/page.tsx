@@ -1,6 +1,6 @@
 "use client";
 import React from 'react';
-import Navbar from '@/app/components/Navbar';
+import Navbar from '@/app/(cms)/components/Navbar';
 
 const Page = () => {
   return ( 
